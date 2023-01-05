@@ -1,0 +1,28 @@
+--CSV
+SELECT "location description", COUNT(1) as "amount"
+FROM crime_csv
+GROUP BY 1
+ORDER BY 2 DESC;
+
+--PARQUET
+SELECT "location description", COUNT(1) as "amount"
+FROM crime_parquet
+GROUP BY 1
+ORDER BY 2 DESC;
+
+--Q2 CSV:
+SELECT *
+FROM crime_csv
+WHERE CAST(reference_date as DATE) BETWEEN DATE '2014-12-01' and DATE '2014-12-31'
+
+--Q2 PARQUET
+SELECT *
+FROM crime_parquet
+WHERE CAST(reference_date as DATE) BETWEEN DATE '2014-12-01' and DATE '2014-12-31'
+
+--Q3 CSV:
+SELECT "location description", COUNT(1) as "amount"
+FROM crime_csv
+WHERE CAST(reference_date as DATE) BETWEEN DATE '2014-12-01' and DATE '2014-12-31'
+GROUP BY 1
+ORDER BY 2 DESC

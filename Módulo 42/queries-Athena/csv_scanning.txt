@@ -1,0 +1,4 @@
+SELECT * FROM "default"."crime_csv" limit 10;
+-- Time in queue: 125 ms
+-- Run time: 655 ms
+-- Data scanned: 1.41 MB

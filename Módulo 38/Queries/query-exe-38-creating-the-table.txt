@@ -1,0 +1,13 @@
+CREATE EXTERNAL TABLE carcrashes (
+  total float,
+  speeding float,
+  alcohol float, 
+  not_distracted float,
+  no_previous float,
+  ins_premium float,
+  ins_losses float,
+  abbrev string
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
+WITH SERDEPROPERTIES ('separatorChar'=',') 
+LOCATION 's3://ebac-38-vinicius/'

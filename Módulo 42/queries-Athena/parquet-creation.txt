@@ -1,0 +1,29 @@
+CREATE EXTERNAL TABLE `crime_parquet`(
+  `index` bigint, 
+  `id` bigint, 
+  `case number` string, 
+  `date` string, 
+  `block` string, 
+  `iucr` string, 
+  `primary type` string, 
+  `description` string, 
+  `location description` string, 
+  `arrest` boolean, 
+  `domestic` boolean, 
+  `beat` bigint, 
+  `district` bigint, 
+  `ward` double, 
+  `community area` double, 
+  `fbi code` string, 
+  `latitude` double, 
+  `longitude` double)
+PARTITIONED BY ( 
+  `reference_date` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  's3://bucket-42-parquet/'

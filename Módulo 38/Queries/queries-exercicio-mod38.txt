@@ -1,0 +1,24 @@
+--Número de linhas:
+SELECT COUNT(*) FROM carcrashes;
+
+--Checando as primeiras linhas do dataset:
+SELECT * FROM carcrashes
+LIMIT 5;
+
+--Top 5 estados com mais "crashes":
+SELECT 
+  abbrev AS state,
+  SUM(total) AS total_crashes
+FROM carcrashes
+GROUP BY abbrev
+ORDER BY 2 DESC
+LIMIT 5;
+
+--Top 5 estados com menos "crashes":
+SELECT 
+  abbrev AS state,
+  SUM(total) AS total_crashes
+FROM carcrashes
+GROUP BY abbrev
+ORDER BY 2 ASC
+LIMIT 5;

@@ -1,0 +1,27 @@
+--Q1
+SELECT id_cliente FROM transacoes
+UNION
+SELECT id_cliente  FROM cliente;
+
+--Q2
+SELECT transacoes.id_cliente, cliente.nome
+FROM transacoes
+INNER JOIN cliente
+ON transacoes.id_cliente = cliente.id_cliente;
+
+--Q3
+SELECT 
+FROM cliente
+CROSS JOIN transacoes;
+
+--Q4
+SELECT 
+FROM transacoes
+LEFT JOIN cliente 
+ON cliente.id_cliente = transacoes.id_cliente;
+
+--Q5
+SELECT 
+FROM transacoes
+RIGHT JOIN cliente 
+ON cliente.id_cliente = transacoes.id_cliente;

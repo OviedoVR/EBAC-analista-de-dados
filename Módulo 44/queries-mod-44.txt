@@ -1,0 +1,34 @@
+--Overview da tabela:
+SELECT * FROM telegram;
+
+--Partições:
+MSCK REPAIR TABLE telgram;
+
+--Quantidades de mensagens por dia
+SELECT context_date, COUNT(*) AS messages
+FROM telegram
+GROUP BY context_date
+ORDER BY 1 DESC;
+
+
+--Média do tamanho das mensagens.
+SELECT 
+SELECT 
+  context_date,
+  CAST(AVG(length(text)) AS INT) AS mean_message_len 
+FROM telegram 
+GROUP BY  context_date 
+ORDER BY 1 DESC;
+
+--Quantas mensagens tiveram erros de digitação?
+SELECT count(*) AS messages_with_typos
+FROM telegram
+WHERE text LIKE '%*%';
+
+--Checagem:
+SELECT user_first_name, 
+       text AS messages_with_typos,
+       context_date
+FROM telegram
+WHERE text LIKE '%*%'
+ORDER BY 3 DESC;

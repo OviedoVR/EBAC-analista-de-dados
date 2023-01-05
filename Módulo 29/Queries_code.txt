@@ -1,0 +1,67 @@
+-- 1)
+SELECT id, idade, sexo, dependentes
+FROM clientes;
+
+--2)
+SELECT 
+    id, 
+    valor_transacoes_12m
+FROM clientes 
+WHERE
+    escolaridade = 'mestrado'
+    and 
+    sexo = 'F';
+
+--3)
+SELECT 
+    sexo,
+    AVG(idade) as media_idade_por_sexo
+FROM clientes
+GROUP BY sexo;
+
+--4)
+SELECT * FROM clientes;
+
+--PARTITIONING--
+CREATE EXTERNAL TABLE clientes_part(
+  id BIGINT, 
+  idade BIGINT, 
+  dependentes BIGINT, 
+  escolaridade STRING, 
+  tipo_cartao STRING, 
+  limite_credito DOUBLE, 
+  valor_transacoes_12m DOUBLE, 
+  qtd_transacoes_12m BIGINT
+) PARTITIONED BY (sexo string) ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+  'separatorChar' = ',', 
+  'quoteChar' = '"',
+  'escapeChar' = '\\'
+) STORED AS TEXTFILE LOCATION 's3://bucket-vinicius-partitioned/'
+
+--LOADING THE PARTITION--
+MSCK REPAIR 
+TABLE
+clientes_part;
+
+--...--
+--Query 5:
+SELECT * FROM clientes_part WHERE sexo = 'F'
+
+--Query 6:
+SELECT
+    id, idade, limite_credito
+FROM 
+    clientes_part 
+WHERE 
+    sexo = 'M'
+ORDER BY 
+    limite_credito DESC;
+    
+--Query 7:
+ALTER TABLE clientes
+ADD COLUMNS(estado STRING)
+
+SELECT * FROM clientes
+
+DROP TABLE clientes

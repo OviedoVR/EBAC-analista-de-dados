@@ -1,0 +1,35 @@
+CREATE EXTERNAL TABLE `crime_csv`(
+  `index` bigint, 
+  `id` string, 
+  `case number` string, 
+  `date` string, 
+  `block` string, 
+  `iucr` string, 
+  `primary type` string, 
+  `description` string, 
+  `location description` string, 
+  `arrest` string, 
+  `domestic` string, 
+  `beat` string, 
+  `district` string, 
+  `ward` string, 
+  `community area` string, 
+  `fbi code` string, 
+  `latitude` string, 
+  `longitude` string,
+  `reference_date` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+ WITH SERDEPROPERTIES (
+   'separatorChar' = ',',
+   'quoteChar' = '\"',
+   'escapeChar' = '\\'
+   )
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  's3://bucket-42-csv/'
+TBLPROPERTIES (
+  "skip.header.line.count"="1")

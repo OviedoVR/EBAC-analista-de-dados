@@ -1,0 +1,4 @@
+SELECT * FROM "default"."crime_parquet" limit 10;
+-- Time in queue: 182 ms
+-- Run time: 1.451 sec
+-- Data scanned: 681.42 KB
