@@ -25,8 +25,8 @@ de nuvem | Big Data e Data Lake no AWS
 - [x] Módulo 13: Disputa de dados II
 - [x] Módulo 14: Visualização de dados I
 - [x] Módulo 15: Visualização de dados II
-- [x] Módulo 16: **Projeto: Análise exploratória de dados em Python I**
-- [x] Módulo 17: **Projeto: Análise exploratória de dados em Python II**
+- [x] Módulo 16: **PROJETO: Análise exploratória de dados em Python I - Loggi data**
+- [x] Módulo 17: **PROJETO: Análise exploratória de dados em Python II- Loggi data**
 
 ## Controle de Versão:
 
@@ -36,7 +36,7 @@ de nuvem | Big Data e Data Lake no AWS
 
 ## Matemática para Análise de Dados:
 
-- [ ] Módulo 21: Fundamentos da matemática
+- [x] Módulo 21: Fundamentos da matemática
 - [x] Módulo 22: Fundamentos da estatística
 
 ## Machine Learning:
@@ -56,12 +56,12 @@ de nuvem | Big Data e Data Lake no AWS
 - [x] Módulo 32: Agregações
 - [x] Módulo 33: Trabalhando com várias tabelas
 - [x] Módulo 34: Técnicas avançadas
-- [x] Módulo 35: **Projeto Final**
+- [x] Módulo 35: **PROJETO: Análise de dados crédito com SQL** 
 
 ## Visualização interativa de dados:
 
 - [x] Módulo 36: Visualização interativa de dados
-- [x] Módulo 37: **Projeto: Dashboard com Google Looker Studio**
+- [x] Módulo 37: **PROJETO: Dashboard com Google Looker Studio**
 
 ## Trabalhando em ambiente de nuvem:
 
@@ -73,5 +73,5 @@ de nuvem | Big Data e Data Lake no AWS
 
 - [x] Módulo 41: Big Data I - Processamento
 - [x] Módulo 42: Big Data II - Processamento
-- [x] Módulo 43: **Projeto: pipeline de dados do Telegram I**
-- [x] Módulo 44: **Projeto: pipeline de dados do Telegram II**
+- [x] Módulo 43: **PROJETO: pipeline de dados do Telegram I**
+- [x] Módulo 44: **PROJETO: pipeline de dados do Telegram II**
